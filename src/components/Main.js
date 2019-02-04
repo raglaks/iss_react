@@ -18,9 +18,21 @@ class Main extends Component{
 
         return axios.get("http://api.open-notify.org/iss-now.json").then(res=>{
 
-            console.log(res.data.iss_position);
+            console.log(res.data);
+
+            this.setState({
+
+                coords: res.data.iss_position
+
+            });
 
         });
+
+    }
+
+    componentDidUpdate() {
+
+        console.log("COMPONENT UPDATED:", this.state);
 
     }
 
@@ -36,7 +48,7 @@ class Main extends Component{
 
                 <br></br>
 
-                <Body />
+                <Body coords={this.state.coords}/>
                 
             </Container>
 
