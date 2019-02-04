@@ -24,10 +24,13 @@ class Body extends Component {
 
         let current = window.L.map('mapid').setView([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)], 5);
 
+        
+
         current.removeControl(current.zoomControl);
 
         window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(current);
 
+        window.L.marker([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)]).addTo(current);
     }
 
     componentWillReceiveProps(nextProps) {
