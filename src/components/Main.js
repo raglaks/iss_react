@@ -16,7 +16,7 @@ class Main extends Component{
 
     componentDidMount() {
 
-        this.interval = setInterval(()=>{this.getIss()}, 1000);
+        this.interval = setInterval(()=>{this.getIss()}, 3000);
 
     }
 

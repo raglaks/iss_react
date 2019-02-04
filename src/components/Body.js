@@ -47,13 +47,13 @@ class Body extends Component {
 
     mapRender() {
         
-        this.state.current.setView([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)], 6);
+        this.state.current.setView([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)], 3);
 
         this.state.current.removeControl(this.state.current.zoomControl);
 
         window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
 
-        window.L.marker([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)]).addTo(this.state.current);
+        window.L.marker([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)]).addTo(this.state.current);
 
     }
 
