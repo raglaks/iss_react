@@ -44,7 +44,7 @@ class Main extends Component{
 
                 <br></br>
             
-                <Top />
+                <Top coords={this.state.coords}/>
 
                 <br></br>
 
