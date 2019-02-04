@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Top from './Top';
 import Body from './Body';
+import axios from 'axios';
 
 class Main extends Component{
 
@@ -15,7 +16,11 @@ class Main extends Component{
 
     componentDidMount() {
 
-        
+        return axios.get("http://api.open-notify.org/iss-now.json").then(res=>{
+
+            console.log(res.data.iss_position);
+
+        });
 
     }
 
