@@ -16,7 +16,13 @@ class Main extends Component{
 
     componentDidMount() {
 
-        return axios.get("http://api.open-notify.org/iss-now.json").then(res=>{
+        this.interval = setInterval(()=>{this.getIss()}, 1000);
+
+    }
+
+    getIss() {
+
+        return axios.get("http://api.open-notify.org/iss-now.json").then( res =>{
 
             console.log(res.data);
 
@@ -27,6 +33,12 @@ class Main extends Component{
             });
 
         });
+
+    }
+
+    componentWillUnmount() {
+
+        clearInterval(this.interval);
 
     }
 

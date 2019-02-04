@@ -14,7 +14,11 @@ class Body extends Component {
 
         console.log("BODY MOUNT", this.props.coords);
 
-        //window.L.map('mapid').setView([0, 0], 13);
+        this.setState({
+
+            current: window.L.map('mapid')
+
+        });
 
     }
 
@@ -22,13 +26,6 @@ class Body extends Component {
 
         console.log("BODY UPDATE", this.props.coords);
 
-        let current = window.L.map('mapid').setView([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)], 5);
-
-        current.removeControl(current.zoomControl);
-
-        window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(current);
-
-        window.L.marker([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)]).addTo(current);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -39,7 +36,25 @@ class Body extends Component {
           coords: nextProps.coords
     
         });
+
+        if (this.state.coords) {
+
+            this.mapRender();
+
+        }
     
+    }
+
+    mapRender() {
+        
+        this.state.current.setView([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)], 6);
+
+        this.state.current.removeControl(this.state.current.zoomControl);
+
+        window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
+
+        window.L.marker([parseInt(this.state.coords.longitude), parseInt(this.state.coords.latitude)]).addTo(this.state.current);
+
     }
 
     render() {
