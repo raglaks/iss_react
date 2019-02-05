@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Top from './Top';
 import Body from './Body';
+import Foot from './Foot';
 import axios from 'axios';
 
 class Main extends Component{
@@ -16,7 +17,7 @@ class Main extends Component{
 
     componentDidMount() {
 
-        this.interval = setInterval(()=>{this.getIss()}, 3000);
+        this.interval = setInterval(()=>{this.getIss()}, 30000);
 
     }
 
@@ -53,14 +54,12 @@ class Main extends Component{
         return(
 
             <Container textAlign='center'>
-
-                <br></br>
             
                 <Top coords={this.state.coords}/>
 
-                <br></br>
-
                 <Body coords={this.state.coords}/>
+
+
                 
             </Container>
 

@@ -43,15 +43,15 @@ class Top extends Component{
 
         if (this.state.coords) {
 
-            long = `LONG: ${this.state.coords.longitude}`;
+            long = `${this.state.coords.longitude}`;
 
-            lat = `LAT: ${this.state.coords.latitude}, `
+            lat = `${this.state.coords.latitude}, `
 
         } else {
 
-            long = " ";
+            long = "LOADING";
 
-            lat = " ";
+            lat = "LOADING, ";
 
         }
 
