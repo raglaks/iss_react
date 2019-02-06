@@ -14,11 +14,19 @@ class Foot extends Component{
 
     getDay = (lat, long) => {
 
-        return axios.get(`http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
+        // console.log("LAT IS", lat);
 
-            console.log("THE ISS WILL BE HERE BRO", res);
+        // console.log("LONG IS", long);
 
-        });
+        return axios.get(`https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
+
+            console.log("THE ISS WILL BE HERE BRO", res.data);
+
+        }).catch(err => {
+
+            console.log("ERROR", err);
+
+        })
 
     }
 
@@ -26,9 +34,9 @@ class Foot extends Component{
 
         return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoicmFnbGFrcyIsImEiOiJjanJzYWR5c2gyODdiNDltdXJpMTdpaXJiIn0.V3oelv81YX6BtLqbeO1SZg`).then(res => {
 
-            console.log("RESULT FROM MAPBOX", res.data.features[0].center);
-
             let coords = res.data.features[0].center;
+
+            console.log("RESULT FROM MAPBOX", coords);
 
             this.getDay(coords[0], coords[1]);
 
