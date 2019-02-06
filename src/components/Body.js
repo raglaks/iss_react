@@ -67,8 +67,6 @@ class Body extends Component {
 
         window.L.marker([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)]).addTo(this.state.current);
 
-        
-
     }
 
     render() {

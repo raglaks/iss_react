@@ -21,18 +21,6 @@ class Main extends Component{
 
         this.interval = setInterval(()=>{this.getIss()}, 30000);
 
-        this.getCoords("Mexico");
-
-    }
-
-    getCoords(place) {
-
-        return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoicmFnbGFrcyIsImEiOiJjanJzYWR5c2gyODdiNDltdXJpMTdpaXJiIn0.V3oelv81YX6BtLqbeO1SZg`).then(res => {
-
-            console.log("RESULT FROM MAPBOX", res.data);
-
-        });
-
     }
 
     getIss() {
@@ -73,7 +61,9 @@ class Main extends Component{
 
                 <Body coords={this.state.coords}/>
 
+                <br></br>
 
+                <Foot />
                 
             </Container>
 
