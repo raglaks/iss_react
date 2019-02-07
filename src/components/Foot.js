@@ -16,6 +16,8 @@ class Foot extends Component{
 
         return axios.get(`https://limitless-reaches-72958.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
 
+            console.log("NO EDITS RES", res);
+
             let unix = res.data.response[0].risetime;
             console.log("THE ISS WILL BE HERE BRO", unix);
 
@@ -44,11 +46,13 @@ class Foot extends Component{
 
         return axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=pk.eyJ1IjoicmFnbGFrcyIsImEiOiJjanJzYWR5c2gyODdiNDltdXJpMTdpaXJiIn0.V3oelv81YX6BtLqbeO1SZg`).then(res => {
 
+            console.log("NO EDITS PLACE", res.data);
+
             let coords = res.data.features[0].center;
 
             console.log("RESULT FROM MAPBOX", coords);
 
-            this.getDay(coords[0], coords[1]);
+            this.getDay(coords[1], coords[0]);
 
         });
 
