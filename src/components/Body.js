@@ -46,16 +46,6 @@ class Body extends Component {
     }
 
     mapRender() {
-
-        // let iss = window.L.icon({
-        //     iconUrl: 'https://i2.wp.com/freepngimages.com/wp-content/uploads/2015/12/international-space-station-transparent-background.png?fit=624%2C248',
-        //     iconSize: [40, 20],
-        //     // iconAnchor: [22, 94],
-        //     // popupAnchor: [-3, -76],
-        //     // shadowUrl: 'my-icon-shadow.png',
-        //     // shadowSize: [68, 95],
-        //     // shadowAnchor: [22, 94]
-        // });
         
         this.state.current.setView([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)], 3);
 
@@ -65,7 +55,7 @@ class Body extends Component {
 
         this.state.current.removeControl(this.state.current.zoomControl);
 
-        window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
+        window.L.tileLayer('https://crossorigin.me/http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
 
         window.L.marker([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)]).addTo(this.state.current);
 
