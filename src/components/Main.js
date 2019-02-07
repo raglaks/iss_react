@@ -5,8 +5,6 @@ import Body from './Body';
 import Foot from './Foot';
 import axios from 'axios';
 
-//pk.eyJ1IjoicmFnbGFrcyIsImEiOiJjanJzYWR5c2gyODdiNDltdXJpMTdpaXJiIn0.V3oelv81YX6BtLqbeO1SZg
-
 class Main extends Component{
 
     constructor(props) {
@@ -19,7 +17,7 @@ class Main extends Component{
 
     componentDidMount() {
 
-        this.interval = setInterval(()=>{this.getIss()}, 30000);
+        this.interval = setInterval(()=>{this.getIss()}, 5000);
 
     }
 
