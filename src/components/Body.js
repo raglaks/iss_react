@@ -61,6 +61,8 @@ class Body extends Component {
 
         this.state.current.scrollWheelZoom.disable();
 
+        this.state.current.dragging.disable();
+
         this.state.current.removeControl(this.state.current.zoomControl);
 
         window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
