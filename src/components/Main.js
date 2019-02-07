@@ -17,13 +17,14 @@ class Main extends Component{
 
     componentDidMount() {
 
-        this.interval = setInterval(()=>{this.getIss()}, 30000);
+        this.interval = setInterval(()=>{this.getIss()}, 5000);
 
     }
+    //
 
     getIss() {
 
-        return axios.get("https://crossorigin.me/http://api.open-notify.org/iss-now.json").then( res =>{
+        return axios.get("https://limitless-reaches-72958.herokuapp.com/http://api.open-notify.org/iss-now.json").then( res =>{
 
             console.log(res.data);
 
