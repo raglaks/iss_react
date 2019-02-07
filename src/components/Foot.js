@@ -38,7 +38,7 @@ class Foot extends Component{
 
             this.setState({
 
-                rend: {date: sDate, time: sTime}
+                rend: {date: sDate, time: sTime, city: this.state.search}
 
             });
 
@@ -104,7 +104,7 @@ class Foot extends Component{
 
             if (props.disp) {
 
-                cityJ = <h1 style={{color: "red", textTransform: "uppercase"}}>THE ISS WILL FLY OVER {props.city} ON: {props.disp.date}, AT {props.disp.time}</h1>;
+                cityJ = <h1 style={{color: "red", textTransform: "uppercase"}}>THE ISS WILL FLY OVER {props.disp.city} ON: {props.disp.date}, AT {props.disp.time}</h1>;
 
             } else {
 
@@ -125,7 +125,7 @@ class Foot extends Component{
                 </Input>
 
                 <div>
-                    <City city= {this.state.search} disp={this.state.rend}/>
+                    <City disp={this.state.rend}/>
                 </div>     
             </div>
             
