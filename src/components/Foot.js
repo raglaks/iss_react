@@ -16,33 +16,37 @@ class Foot extends Component{
 
         return axios.get(`https://limitless-reaches-72958.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
 
-            console.log("NO EDITS RES", res);
-
             let unix = res.data.response[0].risetime;
-            console.log("THE ISS WILL BE HERE BRO", unix);
 
-            let date = new Date(unix*1000);
+            let uDate = new Date(unix * 1000);
 
-            console.log("THE ISS WILL BE HERE BRO ON THE", date);
+            let day = uDate.getDate();
+
+            let month = uDate.getMonth() + 1;
+            
+            let year = uDate.getFullYear();
+
+            let hours = uDate.getHours();
+
+            let mins = uDate.getMinutes();
+
+            let secs = uDate.getSeconds();
+
+            let sDate = `${day}/${month}/${year}`;
+
+            let sTime = `${hours}:${mins}:${secs}`;
+
+            this.setState({
+
+                rend: {date: sDate, time: sTime}
+
+            });
 
         }).catch(err => {
 
             console.log("ERROR", err);
 
         });
-
-        // Create a new JavaScript Date object based on the timestamp
-        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-        
-        // Hours part from the timestamp
-        //var hours = date.getHours();
-        // Minutes part from the timestamp
-        //var minutes = "0" + date.getMinutes();
-        // Seconds part from the timestamp
-        //var seconds = "0" + date.getSeconds();
-
-        // Will display time in 10:30:23 format
-        //var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
     }
 
@@ -92,14 +96,37 @@ class Foot extends Component{
 
     render() {
 
+        let City = (props) => {
+
+            let cityJ;
+
+            if (props.disp) {
+
+                cityJ = <h1 style={{color: "red"}}>THE ISS WILL VISIT YOUR CITY ON: {props.disp.date}, AT {props.disp.time}</h1>;
+
+            } else {
+
+                cityJ = <span></span>;
+
+            }
+
+            return (cityJ);
+
+        }
+
         return(
 
             <div>
                 <Input type="text"placeholder='NAME YOUR CITY' onChange={this.handleChange}>
                     <input />
                     <Button type='submit' onClick={this.subClick}>Search</Button>
-                </Input>                
+                </Input>
+
+                <div>
+                    <City disp={this.state.rend}/>
+                </div>     
             </div>
+            
         )
 
     }
