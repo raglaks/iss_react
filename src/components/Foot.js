@@ -21,6 +21,10 @@ class Foot extends Component{
             let unix = res.data.response[0].risetime;
             console.log("THE ISS WILL BE HERE BRO", unix);
 
+            let date = new Date(unix*1000);
+
+            console.log("THE ISS WILL BE HERE BRO ON THE", date);
+
         }).catch(err => {
 
             console.log("ERROR", err);
@@ -29,7 +33,7 @@ class Foot extends Component{
 
         // Create a new JavaScript Date object based on the timestamp
         // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-        //let date = new Date(unix_timestamp*1000);
+        
         // Hours part from the timestamp
         //var hours = date.getHours();
         // Minutes part from the timestamp
