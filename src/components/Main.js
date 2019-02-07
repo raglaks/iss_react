@@ -23,7 +23,7 @@ class Main extends Component{
 
     getIss() {
 
-        return axios.get("https://api.open-notify.org/iss-now.json").then( res =>{
+        return axios.get("http://api.open-notify.org/iss-now.json").then( res =>{
 
             console.log(res.data);
 

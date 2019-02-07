@@ -46,16 +46,6 @@ class Body extends Component {
     }
 
     mapRender() {
-
-        // let iss = window.L.icon({
-        //     iconUrl: 'https://i2.wp.com/freepngimages.com/wp-content/uploads/2015/12/international-space-station-transparent-background.png?fit=624%2C248',
-        //     iconSize: [40, 20],
-        //     // iconAnchor: [22, 94],
-        //     // popupAnchor: [-3, -76],
-        //     // shadowUrl: 'my-icon-shadow.png',
-        //     // shadowSize: [68, 95],
-        //     // shadowAnchor: [22, 94]
-        // });
         
         this.state.current.setView([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)], 3);
 
