@@ -12,9 +12,10 @@ class Foot extends Component{
 
     }
 
+    //https://crossorigin.me/
     getDay = (lat, long) => {
 
-        return axios.get(`https://limitless-reaches-72958.herokuapp.com/https://crossorigin.me/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
+        return axios.get(`https://limitless-reaches-72958.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
 
             let unix = res.data.response[0].risetime;
 

@@ -44,6 +44,7 @@ class Body extends Component {
         }
     
     }
+    //https://crossorigin.me/
 
     mapRender() {
         
@@ -55,7 +56,7 @@ class Body extends Component {
 
         this.state.current.removeControl(this.state.current.zoomControl);
 
-        window.L.tileLayer('https://crossorigin.me/http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
+        window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
 
         window.L.marker([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)]).addTo(this.state.current);
 
