@@ -42,6 +42,8 @@ class Foot extends Component{
 
             });
 
+            console.log(this.state);
+
         }).catch(err => {
 
             console.log("ERROR", err);
@@ -102,7 +104,7 @@ class Foot extends Component{
 
             if (props.disp) {
 
-                cityJ = <h1 style={{color: "red"}}>THE ISS WILL VISIT YOUR CITY ON: {props.disp.date}, AT {props.disp.time}</h1>;
+                cityJ = <h1 style={{color: "red", textTransform: "uppercase"}}>THE ISS WILL FLY OVER {props.city} ON: {props.disp.date}, AT {props.disp.time}</h1>;
 
             } else {
 
@@ -123,7 +125,7 @@ class Foot extends Component{
                 </Input>
 
                 <div>
-                    <City disp={this.state.rend}/>
+                    <City city= {this.state.search} disp={this.state.rend}/>
                 </div>     
             </div>
             
