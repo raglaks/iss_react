@@ -14,19 +14,29 @@ class Foot extends Component{
 
     getDay = (lat, long) => {
 
-        // console.log("LAT IS", lat);
+        return axios.get(`https://limitless-reaches-72958.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
 
-        // console.log("LONG IS", long);
-
-        return axios.get(`https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`).then(res => {
-
-            console.log("THE ISS WILL BE HERE BRO", res.data);
+            let unix = res.data.response[0].risetime;
+            console.log("THE ISS WILL BE HERE BRO", unix);
 
         }).catch(err => {
 
             console.log("ERROR", err);
 
-        })
+        });
+
+        // Create a new JavaScript Date object based on the timestamp
+        // multiplied by 1000 so that the argument is in milliseconds, not seconds.
+        //let date = new Date(unix_timestamp*1000);
+        // Hours part from the timestamp
+        //var hours = date.getHours();
+        // Minutes part from the timestamp
+        //var minutes = "0" + date.getMinutes();
+        // Seconds part from the timestamp
+        //var seconds = "0" + date.getSeconds();
+
+        // Will display time in 10:30:23 format
+        //var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
     }
 
