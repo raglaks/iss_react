@@ -47,6 +47,10 @@ class Body extends Component {
     //https://crossorigin.me/
 
     mapRender() {
+
+        const markerOptions = {
+            title: `${this.state.coords.latitude}, ${this.state.coords.longitude}`
+        };
         
         this.state.current.setView([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)], 3);
 
@@ -58,7 +62,9 @@ class Body extends Component {
 
         window.L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'}, ).addTo(this.state.current);
 
-        window.L.marker([parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)]).addTo(this.state.current);
+        window.L.marker(
+            [parseInt(this.state.coords.latitude), parseInt(this.state.coords.longitude)], 
+            markerOptions).addTo(this.state.current);
 
     }
 
